@@ -2,18 +2,18 @@ from flask import Flask, Blueprint, render_template, request
 from Service import User_Management
 
 app = Flask(__name__)
-
 controller = Blueprint('controller', __name__, template_folder='templates')
-
 
 @controller.route('/')
 def hello_world():
     return render_template("index.html")
 
+
 @controller.route('/register', methods=["GET"])
 def register_page():
     print("here")
     return render_template("register.html")
+
 
 @controller.route('/register', methods=["POST"])
 def register():
@@ -30,10 +30,15 @@ def register():
     return render_template("register.html", message=message)
 
 
+@controller.route("/login", methods=["GET"])
+def login_page():
+    return render_template("login.html")
+
+
 @controller.route("/login", methods=["POST"])
 def login():
     email = request.form["email"]
     password = request.form["password"]
     security_question = request.form["security_question"]
     flag, message = User_Management.login_service(email, password, security_question)
-    return render_template("login.html")
+    return render_template("login.html", message=message)
