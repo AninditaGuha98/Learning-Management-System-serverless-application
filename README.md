@@ -1,1 +1,3 @@
-# Learning-Management-System-serverless-application
+<h2>This repository is a collaborative work towards creating a serverless application called Learning Management System. This application will follow multi-cloud deployment and will implement backend-as-a service architecture. This application has the following features:</h2>
+<ul>
+  <li> User Management Module : This feature is associated with the user registeration. Basic validation will be added in the front-end. User details such as the username, first name, last name and password are being stored in AWS RDS. Other details such as security questions and answers will be stored in GCP Firestore. </li>
