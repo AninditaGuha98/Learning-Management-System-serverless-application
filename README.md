@@ -9,7 +9,17 @@
   
   
   
-  
+  <h3>Technologies Used</h3>
+  <p>Frameworks/Languages used:</p>
+  <ul>
+  <li> React </li>
+  <li> Flask </li>
+  </ul>
+  <p>Cloud Services used:</p>
+  <ul>
+  <li>Amazon Web Services: RDS</li>
+  <li>Google Cloud Provider: Firestore</li>
+  </ul>
   
   <h3>Team Members:</h3>
   <ul>
