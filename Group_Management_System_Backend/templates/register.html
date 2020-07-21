@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Group Formation Tool</title>
+    <style>
+        input{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<form action="{{ url_for('controller.register') }}" method="post" name="register_form">
+    <input type="text" placeholder="firstname" name="firstname">
+    <input type="text" placeholder="lastname" name="lastname">
+    <input type="text" placeholder="email" name="email">
+    <input type="text" placeholder="password" name="password">
+    <input type="text" placeholder="confirm_password" name="confirm_password">
+    <input type="text" placeholder="security 1" name="security_1">
+    <input type="text" placeholder="security 2" name="security_2">
+    <input type="submit" name="Submit">
+</form>
+<label>{{ message }}</label>
+</body>
+</html>
