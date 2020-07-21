@@ -14,4 +14,4 @@
   <ul>
   <li><a href="https://github.com/AninditaGuha98"> Anindita Guha </li>
   <li> Devam Shah </li>
-  <li> Harsh Patel </li>
+  <li><a href="https://github.com/Harshpatel44"> Harsh Patel </li>
