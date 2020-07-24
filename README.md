@@ -17,8 +17,8 @@
   </ul>
   <p>Cloud Services used:</p>
   <ul>
-  <li>Amazon Web Services: RDS</li>
-  <li>Google Cloud Provider: Firestore</li>
+  <li>Amazon Web Services: RDS,Lex,Lambda</li>
+  <li>Google Cloud Provider: Firestore, Cloud Function</li>
   </ul>
   
   <h3>Team Members:</h3>
