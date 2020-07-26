@@ -30,3 +30,8 @@
 <li> Devam Shah </li>
 <li><a href="https://github.com/Harshpatel44"> Harsh Patel </li>
  </ul> 
+ 
+ 
+ <h2>References</h2>
+ 
+ Word cloud code: <i>https://www.geeksforgeeks.org/generating-word-cloud-python/</i>
