@@ -20,7 +20,8 @@
 
 <h2>Modules</h2>
 <i><p>Data Processing</p></i>
-<p>1. S3 bucket to upload the file | Name: data_processing_lms | Filename: data_processing_email.txt</p>
+<p>1. Files will be uploaded on a S3 bucket | Name: data_processing_lms | Filename: data_processing_email.txt</p>
+<p>2. The docker will be called for processing; which will fetch the filename, take file from S3 and create a word cloud. The wordcloud will be uploaded to S3. </p>
 
 
 <h3>Team Members:</h3>
