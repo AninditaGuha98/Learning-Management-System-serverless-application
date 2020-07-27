@@ -10,12 +10,12 @@
 <p>Frameworks/Languages used:</p>
 <ul>
 <li> React </li>
-<li> Flask </li>
+<li> Node.js </li>
 </ul>
 <p>Cloud Services used:</p>
 <ul>
 <li>Amazon Web Services: RDS,Lex,Lambda</li>
-<li>Google Cloud Provider: Firestore, Cloud Function</li>
+<li>Google Cloud Provider: Firestore, Cloud Function, Cloud AI</li>
 </ul>
 
 <h2>Modules</h2>
@@ -23,6 +23,7 @@
 <p>1. Google Cloud Storage buckets are google encrypted.</p>
 <p>2. Files will be uploaded on a the bucket | Name: data_processing_lms | Filename: data_processing_email.txt</p>
 <p>3. The docker will be called for processing; which will fetch the filename, take file from S3 and create a word cloud. The wordcloud will be uploaded to S3. </p>
+
 
 
 <h3>Team Members:</h3>
