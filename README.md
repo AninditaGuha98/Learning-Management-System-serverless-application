@@ -24,6 +24,10 @@
 <p>2. Files will be uploaded on a the bucket | Name: data_processing_lms | Filename: data_processing_email.txt</p>
 <p>3. The docker will be called for processing; which will fetch the filename, take file from S3 and create a word cloud. The wordcloud will be uploaded to S3. </p>
 
+<i><p>Machine Learning</p></i>
+<p>1. Create K-Means text clustering on JupyterLab available on Google AI Platform.</p>
+<p>2. There are 2 approaches which can be followed. One is to create a container and call API for training and testing, another is to train the model on notebook and save the
+  model on GCS. Then we can use the model to predict the data. The later technique works if the model needs training only once. The former works best for all the ways</p>
 
 
 <h3>Team Members:</h3>
@@ -37,3 +41,6 @@
  <h2>References</h2>
  
  Word cloud code: <i>https://www.geeksforgeeks.org/generating-word-cloud-python/</i>
+ Google Cloud Storage API: <i>https://googleapis.dev/python/storage/latest/index.html</i>
+ K-Means Text clustering: <i>https://pythonprogramminglanguage.com/kmeans-text-clustering/</i>
+ 
