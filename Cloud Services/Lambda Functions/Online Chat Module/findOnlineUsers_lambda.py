@@ -11,25 +11,24 @@ cursor = conn.cursor()
 def lambda_handler(event, context):
     myList = []
     myDict = {}
-    if event:
-        status = "online"
-        try:
-            fetchUsers = "select  userStatus.firstName,usermfa.organization, userStatus.email  from usermfa natural join userStatus where status=%s"
-            cursor.execute(fetchUsers, (status,))
-            result = cursor.fetchall()
-            for i in range(len(result)):
-                myDict = {
-                    "name": result[i][0],
-                    "organization": result[i][1],
-                    "email": result[i][2]
-                }
-                myList.append(myDict)
+    status = "online"
+    try:
+        fetchUsers = "select  userStatus.firstName,usermfa.organization, userStatus.email  from usermfa natural join userStatus where status=%s"
+        cursor.execute(fetchUsers, (status,))
+        result = cursor.fetchall()
+        for i in range(len(result)):
+            myDict = {
+                "name": result[i][0],
+                "organization": result[i][1],
+                "email": result[i][2]
+            }
+            myList.append(myDict)
 
-            print(myList)
-            return myList
-        except Exception as e:
-            print(e)
+        print(myList)
+        return myList
+    except Exception as e:
+        print(e)
 
-        finally:
-            conn.commit()
-            # conn.close()
+    finally:
+        conn.commit()
+        # conn.close()
