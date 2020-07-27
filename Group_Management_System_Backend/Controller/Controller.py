@@ -1,5 +1,5 @@
 from flask import Flask, Blueprint, render_template, request
-from Service import User_Management
+from Service import User_Management, passwordEncryptDecrypt
 
 app = Flask(__name__)
 controller = Blueprint('controller', __name__, template_folder='templates')
@@ -11,7 +11,13 @@ def hello_world():
 
 @controller.route('/register', methods=["GET"])
 def register_page():
+    #Fetch the actual data here
     print("here")
+    fName="Sheldon"
+    lName="Cooper"
+    password="user"
+
+    User_Management.register_service()
     return render_template("register.html")
 
 
