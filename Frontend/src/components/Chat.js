@@ -27,7 +27,11 @@ class Chat extends Component {
     // }
     loadMessage = (e, label) => {
         e.preventDefault()
-        axios.post('http://localhost:5000/listenMessage', { name: 'Devam'}).then((result) => {
+        axios.post('http://localhost:5000/listenMessage', { name: 'Devam' }, {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('IdToken')
+            }
+        }).then((result) => {
             // this.setState({
             //     chatMessage: result.data.message
             // })
@@ -41,7 +45,7 @@ class Chat extends Component {
         })
     }
 
-    
+
 
     onValueChange = (e, label) => {
         this.setState({
@@ -51,15 +55,24 @@ class Chat extends Component {
     }
 
     createTopic = () => {
-        axios.post('http://localhost:5000/createSub', { subName: this.state.name }).then((result) => {
+        axios.post('http://localhost:5000/createSub', { subName: this.state.name }, {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('IdToken')
+            }
+        }).then((result) => {
             console.log(result)
         }).catch((error) => {
 
         })
     }
 
-    onMessageSend = () => {
-        axios.post('http://localhost:5000/pubMessage', { message: this.state.message }).then((result) => {
+    onMessageSend = (e) => {
+        e.preventDefault()
+        axios.post('http://localhost:5000/pubMessage', { message: this.state.message }, {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('IdToken')
+            }
+        }).then((result) => {
             console.log(result)
         }).catch((error) => {
             console.log(error)
@@ -105,13 +118,13 @@ class Chat extends Component {
                     </Container>
                 </div>
                 <Container>
-                    {this.state.chatMessage ? ( <p>
-                        { this.state.chatMessage }
-                        </p>
+                    {this.state.chatMessage ? (<p>
+                        {this.state.chatMessage}
+                    </p>
                     ) : (<div></div>)}
                 </Container>
                 <Container>
-                    <Button variant = "success" type = "submit" onClick = {this.loadMessage} style ={{marginTop:'2rem'}}> Get Messages</Button>
+                    <Button variant="success" type="submit" onClick={this.loadMessage} style={{ marginTop: '2rem' }}> Get Messages</Button>
                 </Container>
 
             </React.Fragment>

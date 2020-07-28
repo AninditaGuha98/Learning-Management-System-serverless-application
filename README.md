@@ -2,9 +2,6 @@
 
 
 <p>This repository is a collaborative work towards creating a serverless application called Learning Management System. This application will follow multi-cloud deployment and will implement backend-as-a service architecture. This application has the following features:</p>
-<ul>
-  <li> User Management Module : This feature is associated with the user registeration. Basic validation will be added in the front-end. User details such as the username, first name, last name and password are being stored in AWS RDS. Other details such as security questions and answers will be stored in GCP Firestore. </li>
- </ul>
  
 <h3>Technologies Used</h3>
 <p>Frameworks/Languages used:</p>
@@ -14,11 +11,22 @@
 </ul>
 <p>Cloud Services used:</p>
 <ul>
-<li>Amazon Web Services: RDS,Lex,Lambda</li>
-<li>Google Cloud Provider: Firestore, Cloud Function, Cloud AI</li>
+<li>Amazon Web Services: RDS, Lex, Lambda, S3</li>
+<li>Google Cloud Provider: Cloud Storage, Cloud Function, Cloud AI, GCP Pub/Sub</li>
 </ul>
 
 <h2>Modules</h2>
+
+<i><p>User Management Module</p></i>
+<p>1. This module involves the registration page.</p>
+<p>2. Details such as email and firstname and last name are being stored in the Firebase.</p>
+<p>3. Other details such as the security question and answers are stored in AWS RDS, where the email id serves the primary key.</p>
+
+<i><p>Authentication Module</p></i>
+<p>1. This module involves the login page.</p>
+<p>2. 1st factor authentication involves validating the email and password, by validating them using the google cloud function.</p>
+<p>3. 2 FA involves validating the security question/answer using the AWS Lambda function.</p>  
+  
 <i><p>Data Processing</p></i>
 <p>1. Google Cloud Storage buckets are google encrypted.</p>
 <p>2. Files will be uploaded on a the bucket | Name: data_processing_lms | Filename: data_processing_email.txt</p>
@@ -39,7 +47,15 @@
  
  
  <h2>References</h2>
+ <ul>
+ <li>Word cloud code: <i>https://www.geeksforgeeks.org/generating-word-cloud-python/</i></li>
+ <li>Google Cloud Storage API: <i>https://googleapis.dev/python/storage/latest/index.html</i></li>
+ <li>K-Means Text clustering: <i>https://pythonprogramminglanguage.com/kmeans-text-clustering/</i></li>
+ <li>Amazon Lex: <i>https://medium.com/velotio-perspectives/amazon-lex-aws-lambda-beyond-hello-world-1403c1825e72</i></li>
+ <li>Lex-React-Integration :<i>https://www.npmjs.com/package/react-lex</i></li>
+ </ul>
  
- Word cloud code: <i>https://www.geeksforgeeks.org/generating-word-cloud-python/</i>
- Google Cloud Storage API: <i>https://googleapis.dev/python/storage/latest/index.html</i>
- K-Means Text clustering: <i>https://pythonprogramminglanguage.com/kmeans-text-clustering/</i>
+ 
+ 
+ 
+ 
