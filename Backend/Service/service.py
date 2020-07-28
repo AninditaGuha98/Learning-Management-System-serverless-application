@@ -16,7 +16,7 @@ def upload_file_gcs(storage_name,file,file_name):
     blob.upload_from_string(file)
 
 
-def call_cloud_docker(email):
+def call_data_processing_docker(email):
     # The service account JSON key file to use to create the Identity Token
     sa_filename = security_file
 
@@ -56,6 +56,50 @@ def call_cloud_docker(email):
     if response is not None:
         print(response)
     return response
+
+def call_machine_learning_function(email,files):
+    # The service account JSON key file to use to create the Identity Token
+    sa_filename = security_file
+
+    # Endpoint to call
+    endpoint = 'https://us-east4-phrasal-aegis-284521.cloudfunctions.net/machine-learning-lms?files='+str(files)+'&email='+email
+
+    aud = 'https://us-east4-phrasal-aegis-284521.cloudfunctions.net/machine-learning-lms'
+
+    def invoke_endpoint(url, id_token):
+        headers = {'Authorization': 'Bearer ' + id_token}
+
+        r = requests.get(url, headers=headers)
+
+        if r.status_code != 200:
+            print('Calling endpoint failed')
+            print('HTTP Status Code:', r.status_code)
+            print(r.content)
+            return None
+
+        return r.content.decode('utf-8')
+
+
+    credentials = IDTokenCredentials.from_service_account_file(
+        sa_filename,
+        target_audience=aud)
+
+    request = google.auth.transport.requests.Request()
+
+    credentials.refresh(request)
+
+    # This is debug code to show how to decode Identity Token
+    # print('Decoded Identity Token:')
+    # print_jwt(credentials.token.encode())
+
+    response = invoke_endpoint(endpoint, credentials.token)
+
+    if response is not None:
+        print(response)
+    return response
+
+# call_machine_learning_function("harshgp44@gmail.com",2)
+
 
 def fetch_file_gcs(storage_name,file_name):
     client = storage.Client.from_service_account_json(

@@ -4,7 +4,7 @@ import base64
 
 from werkzeug.utils import secure_filename
 
-from Service.data_processing import *
+from Service.service import *
 from flask import Blueprint, render_template, request, jsonify, send_file
 
 controller = Blueprint('controller', __name__,
@@ -33,7 +33,7 @@ def data_processing():
 
     file_name = "data_processing_"+email
     upload_file_gcs("data-processing-lms",text_file,file_name+".txt")
-    call_cloud_docker(email)
+    call_data_processing_docker(email)
     image = fetch_file_gcs("data-processing-lms",file_name+".png")
     print(image)
     return send_file(
@@ -42,6 +42,20 @@ def data_processing():
         as_attachment=True,
         attachment_filename="image")
 
-# @controller.route("machine_learning",methods=["POST"])
-# def machine_learning():
-#
+@controller.route("/machine_learning",methods=["POST"])
+def machine_learning():
+    uploaded_files = request.files.getlist("Text")
+    print()
+    email = request.args.get("email")
+    files = len(uploaded_files)
+    for i in range(len(uploaded_files)):
+        uploaded_files[i].save("temp/" + secure_filename(uploaded_files[i].filename))
+        file = open("temp/" + secure_filename(uploaded_files[i].filename), "r")
+        text_file = file.read()
+        file_name = "machine_learning"+str(i+1)+"_"+email
+        upload_file_gcs("machine-learning-lms",text_file,file_name+".txt")
+
+    response = call_machine_learning_function(email,files)
+    print(response)
+
+    return jsonify(response)
