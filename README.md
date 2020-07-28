@@ -45,15 +45,23 @@
 <li><a href="https://github.com/Harshpatel44"> Harsh Patel </li>
  </ul> 
  
- 
- <h2>References</h2>
- <ul>
- <li>Word cloud code: <i>https://www.geeksforgeeks.org/generating-word-cloud-python/</i></li>
- <li>Google Cloud Storage API: <i>https://googleapis.dev/python/storage/latest/index.html</i></li>
- <li>K-Means Text clustering: <i>https://pythonprogramminglanguage.com/kmeans-text-clustering/</i></li>
- <li>Amazon Lex: <i>https://medium.com/velotio-perspectives/amazon-lex-aws-lambda-beyond-hello-world-1403c1825e72</i></li>
- <li>Lex-React-Integration :<i>https://www.npmjs.com/package/react-lex</i></li>
- </ul>
+<h3>Testing</h3>
+<p>1. Unit testing for all the controllers, api and cloud functions.</p>
+<p>2. Integration testing for single-feature plumbing.</p>
+<p>3. Testing of the whole application.</p>
+<p>4. Testing of I/O data of cloud functions.</p>
+<p>5. Security testing.</p>
+<p>6. Regression testing</p>
+<p>7. System testing</p>
+
+<h2>References</h2>
+<ul>
+<li>Word cloud code: <i>https://www.geeksforgeeks.org/generating-word-cloud-python/</i></li>
+<li>Google Cloud Storage API: <i>https://googleapis.dev/python/storage/latest/index.html</i></li>
+<li>K-Means Text clustering: <i>https://pythonprogramminglanguage.com/kmeans-text-clustering/</i></li>
+<li>Amazon Lex: <i>https://medium.com/velotio-perspectives/amazon-lex-aws-lambda-beyond-hello-world-1403c1825e72</i></li>
+<li>Lex-React-Integration :<i>https://www.npmjs.com/package/react-lex</i></li>
+</ul>
  
  
  
