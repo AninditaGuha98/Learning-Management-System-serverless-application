@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import React, { Component } from 'react';
 
-class Analysis1 extends Component {
+class DataProcessing extends Component {
 
     state = {
 
@@ -101,4 +101,4 @@ class Analysis1 extends Component {
     }
 }
 
-export default Analysis1
+export default DataProcessing

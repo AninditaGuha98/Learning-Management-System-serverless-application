@@ -61,6 +61,10 @@ class Home extends Component {
         
     }
 
+    dataProcessing = () => {
+        this.props.history.push('/dataProcessing')
+    }
+
     render() {
         console.log(this.state.pet)
         console.log(this.state.email)
@@ -94,6 +98,9 @@ class Home extends Component {
                             </Col>
                             <Col>
                                 <Button variant="primary" onClick={this.userLogout}>Message Other Users </Button>
+                            </Col>
+                            <Col>
+                                <Button variant="primary" onClick={this.dataProcessing}>Data Processing</Button>
                             </Col>
                             <Col>
                                 <Button variant="primary" onClick={this.analysisOne}>Analysis 1</Button>

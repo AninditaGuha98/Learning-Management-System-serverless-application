@@ -3,6 +3,7 @@ import base64
 import os
 import requests
 from google.cloud import storage
+# from google.appengine.ext import blobstore
 import google.auth.transport.requests
 from google.oauth2.service_account import IDTokenCredentials
 
@@ -107,9 +108,8 @@ def fetch_file_gcs(storage_name,file_name):
     bucket = client.get_bucket(storage_name)
     blob = bucket.get_blob(file_name)
     blob.download_to_filename(file_name)
-    image = open(file_name,'rb')
-    image2 = image.read()
-    print(image2)
-    image.close()
-    os.remove(file_name)
+
+    with open(file_name, "rb") as f:
+        image2 = base64.b64encode(f.read())
+    image2 = image2.decode('utf-8')
     return image2

@@ -1,11 +1,10 @@
 import json
 import io
 import base64
-
 from werkzeug.utils import secure_filename
-
 from Service.service import *
 from flask import Blueprint, render_template, request, jsonify, send_file
+
 
 controller = Blueprint('controller', __name__,
                        static_folder='../Frontend/build/static/',
@@ -35,12 +34,7 @@ def data_processing():
     upload_file_gcs("data-processing-lms",text_file,file_name+".txt")
     call_data_processing_docker(email)
     image = fetch_file_gcs("data-processing-lms",file_name+".png")
-    print(image)
-    return send_file(
-        io.BytesIO(image),
-        mimetype='image/jpeg',
-        as_attachment=True,
-        attachment_filename="image")
+    return jsonify(image)
 
 @controller.route("/machine_learning",methods=["POST"])
 def machine_learning():
@@ -57,5 +51,4 @@ def machine_learning():
 
     response = call_machine_learning_function(email,files)
     print(response)
-
     return jsonify(response)

@@ -12,6 +12,7 @@ import Security from './components/Security';
 import Chat from './components/Chat';
 import LexBot from './components/LexBot';
 import Analysis1 from './components/Analysis1';
+import DataProcessing from './components/DataProcessing';
 // import firebase from "./components/config/fbConfig";
 // import { withAuthenticator } from 'aws-amplify-react'
 
@@ -54,6 +55,7 @@ class App extends Component {
             <Route path="/createSub" exact component={Chat} />
             <Route path="/lex" exact component={LexBot} />
             <Route path="/analysis" exact component={Analysis1} />
+            <Route path="/dataProcessing" exact component={DataProcessing} />
             {/* <Route path="/" exact component={Login} /> */}
             {/* <Route path="/home" exact component={Home} /> */}
             {/* {this.state.user ? (<Home />) : (<Login />)} */}
