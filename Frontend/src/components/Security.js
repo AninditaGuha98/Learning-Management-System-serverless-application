@@ -11,12 +11,18 @@ class Security extends Component {
             question: '',
             answer: '',
             OriginalAnswer: '',
-            email: ''
+            email: '',
+            IdToken : props.location.state
         }
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/security')
+        localStorage.setItem('IdToken', this.state.IdToken)
+        console.log(this.state.IdToken)
+        axios.get('http://localhost:5000/security', {
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('IdToken')  
+            }})
             .then((res) => {
                 console.log(res)
                 this.setState({

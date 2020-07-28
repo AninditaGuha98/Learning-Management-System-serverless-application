@@ -29,7 +29,7 @@ class login extends Component {
             // console.log(res)
             if (res.status === 201) {
                 console.log(res)
-                this.props.history.push('/security')
+                this.props.history.push('/security', res.data )
             }
         })
             .catch((error) => {

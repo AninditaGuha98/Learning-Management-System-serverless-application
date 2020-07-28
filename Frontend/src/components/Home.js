@@ -17,7 +17,8 @@ class Home extends Component {
                 { name: 'Anindita', organization: 'CRA', email: 'anindita@email.com' },
 
             ],
-            something: false
+            something: false,
+            currUser: ''
 
         }
 
@@ -25,26 +26,40 @@ class Home extends Component {
 
     componentDidMount() {
 
-        axios.get('http://localhost:5000/home').then((res) => {
-            console.log(this.state.OnlineUsers)
+        axios.get('http://localhost:5000/home', {
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('IdToken')  
+            }}).then((res) => {
             console.log(res)
-            this.setState({ OnlineUsers: res.data })
+            if (res.status === 200) {
+                console.log(res)
+                this.setState({ OnlineUsers: res.data.data, email: res.data.email })
+                console.log(res.data.email)
+                localStorage.setItem('email', res.data.email)
+            }
+            else if (res.status === 201) {
+                console.log(res)
+                this.setState({ OnlineUsers: res.data })
+            }
         }).catch((error) => {
 
         })
     }
     userLogout = e => {
-        // firebase.auth().signOut();
-        axios.get('http://localhost:5000/logout').then((res) => {
-            
+        console.log(localStorage.getItem('email'))
+        axios.post('http://localhost:5000/logout', {email : localStorage.getItem('email')}).then((res) => {
+        localStorage.removeItem('IdToken')    
+        localStorage.removeItem('email')    
+        this.props.history.push('/login')
+
         }).catch((error) => {
             console.log(error)
         })
-        // this.props.history.push('/')
+
     }
 
     renderTableData() {
-        
+
         return this.state.OnlineUsers.map((users, index) => {
             const { name, organization, email } = users //destructuring
             return (
@@ -58,15 +73,21 @@ class Home extends Component {
     }
     analysisOne = () => {
         this.props.history.push('/analysis')
-        
+
+    }
+    gotoBot = () => {
+        this.props.histopry.push('/lex')
     }
 
-    render() {
-        console.log(this.state.pet)
-        console.log(this.state.email)
+    analysisTwo = () => {
+        this.props.history.push('/analysis2')
+    }
 
+
+
+    render() {
         return (
-            
+
             <div>
                 <h2> Welcome {this.state.currUser}</h2>
                 <Container>
@@ -90,7 +111,7 @@ class Home extends Component {
                     <div className="outer-box">
                         <Row>
                             <Col>
-                                <Button variant="primary" onClick={this.userLogout}>ChatBot </Button>
+                                <Button variant="primary" onClick={this.gotoBot}>ChatBot </Button>
                             </Col>
                             <Col>
                                 <Button variant="primary" onClick={this.userLogout}>Message Other Users </Button>
@@ -99,7 +120,7 @@ class Home extends Component {
                                 <Button variant="primary" onClick={this.analysisOne}>Analysis 1</Button>
                             </Col>
                             <Col>
-                                <Button variant="primary" onClick={this.userLogout}>Analysis 2</Button>
+                                <Button variant="primary" onClick={this.analysisTwo}>Analysis 2</Button>
                             </Col>
                             <Col>
                                 <Button variant="secondary" onClick={this.userLogout}>Logout</Button>
@@ -108,7 +129,7 @@ class Home extends Component {
                     </div>
                 </Container>
             </div>
-            
+
         )
     }
 }
