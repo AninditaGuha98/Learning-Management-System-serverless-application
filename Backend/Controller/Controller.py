@@ -50,5 +50,5 @@ def machine_learning():
         upload_file_gcs("machine-learning-lms",text_file,file_name+".txt")
 
     response = call_machine_learning_function(email,files)
-    print(response)
+    # print(response)
     return jsonify(response)

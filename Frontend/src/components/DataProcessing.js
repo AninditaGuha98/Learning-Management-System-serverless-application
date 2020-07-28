@@ -81,7 +81,7 @@ class DataProcessing extends Component {
                     Upload File
             </h1>
                 <h3>
-                    File Upload using React!
+                Data Processing: Generate word cloud from the named entities of the uploaded files.
             </h3>
                 <div>
                     <input type="file" onChange={this.onFileChange} />
@@ -89,12 +89,11 @@ class DataProcessing extends Component {
                         Upload!
                 </button>
                 </div>
-                {this.fileData()}
-                <div>
-                    <img className="myImg" alt="" width="300"
-                        height="300" src={this.state.image} />
+                
+                <div style={{marginTop: '40px'}}>
+                    <img className="myImg" alt="" width="600"
+                        height="600" src={this.state.image}/>
                 </div>
-                <div style = {{ backgroundImage: `url(${this.state.image})`  }}></div>
             </div>
 
         );

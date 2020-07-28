@@ -48,14 +48,10 @@ def call_data_processing_docker(email):
 
     credentials.refresh(request)
 
-    # This is debug code to show how to decode Identity Token
-    # print('Decoded Identity Token:')
-    # print_jwt(credentials.token.encode())
-
     response = invoke_endpoint(endpoint, credentials.token)
 
     if response is not None:
-        print(response)
+        print("response exists")
     return response
 
 def call_machine_learning_function(email,files):
@@ -86,20 +82,13 @@ def call_machine_learning_function(email,files):
         target_audience=aud)
 
     request = google.auth.transport.requests.Request()
-
     credentials.refresh(request)
-
-    # This is debug code to show how to decode Identity Token
-    # print('Decoded Identity Token:')
-    # print_jwt(credentials.token.encode())
-
     response = invoke_endpoint(endpoint, credentials.token)
 
     if response is not None:
-        print(response)
-    return response
+        print("response exists")
 
-# call_machine_learning_function("harshgp44@gmail.com",2)
+    return response
 
 
 def fetch_file_gcs(storage_name,file_name):
@@ -112,4 +101,5 @@ def fetch_file_gcs(storage_name,file_name):
     with open(file_name, "rb") as f:
         image2 = base64.b64encode(f.read())
     image2 = image2.decode('utf-8')
+    os.remove(file_name)
     return image2
