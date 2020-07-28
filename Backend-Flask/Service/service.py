@@ -3,7 +3,6 @@ import base64
 import os
 import requests
 from google.cloud import storage
-# from google.appengine.ext import blobstore
 import google.auth.transport.requests
 from google.oauth2.service_account import IDTokenCredentials
 
@@ -23,20 +22,16 @@ def call_data_processing_docker(email):
 
     # Endpoint to call
     endpoint = 'https://data-processing-lms-dzoqff2uoa-uk.a.run.app/data_processing?email='+email
-
     aud = 'https://data-processing-lms-dzoqff2uoa-uk.a.run.app'
 
     def invoke_endpoint(url, id_token):
         headers = {'Authorization': 'Bearer ' + id_token}
-
         r = requests.get(url, headers=headers)
-
         if r.status_code != 200:
             print('Calling endpoint failed')
             print('HTTP Status Code:', r.status_code)
             print(r.content)
             return None
-
         return r.content.decode('utf-8')
 
 
@@ -45,9 +40,7 @@ def call_data_processing_docker(email):
         target_audience=aud)
 
     request = google.auth.transport.requests.Request()
-
     credentials.refresh(request)
-
     response = invoke_endpoint(endpoint, credentials.token)
 
     if response is not None:
@@ -65,9 +58,7 @@ def call_machine_learning_function(email,files):
 
     def invoke_endpoint(url, id_token):
         headers = {'Authorization': 'Bearer ' + id_token}
-
         r = requests.get(url, headers=headers)
-
         if r.status_code != 200:
             print('Calling endpoint failed')
             print('HTTP Status Code:', r.status_code)
@@ -75,8 +66,6 @@ def call_machine_learning_function(email,files):
             return None
 
         return r.content.decode('utf-8')
-
-
     credentials = IDTokenCredentials.from_service_account_file(
         sa_filename,
         target_audience=aud)
@@ -84,7 +73,6 @@ def call_machine_learning_function(email,files):
     request = google.auth.transport.requests.Request()
     credentials.refresh(request)
     response = invoke_endpoint(endpoint, credentials.token)
-
     if response is not None:
         print("response exists")
 
