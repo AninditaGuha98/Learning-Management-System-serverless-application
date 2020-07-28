@@ -3,6 +3,7 @@ import io
 import base64
 from werkzeug.utils import secure_filename
 from Service.service import *
+from Service.pubsub_api import *
 from flask import Blueprint, render_template, request, jsonify, send_file
 
 
@@ -50,5 +51,30 @@ def machine_learning():
         upload_file_gcs("machine-learning-lms",text_file,file_name+".txt")
 
     response = call_machine_learning_function(email,files)
-    # print(response)
     return jsonify(response)
+
+
+@controller.route("/sendmessage",methods=['POST'])
+def send_message():
+    email = request.args.get("email")
+    message = request.form['message']
+
+    data = bytes(email+"-"+message,'utf-8')
+    publish(data)
+    return "success"
+
+@controller.route("/createsubscriber",methods=['POST'])
+def create_subscriber():
+    email = request.args.get("email")
+    subscriber_name = email.split("@")[0]
+    create_subscriber(subscriber_name)
+    return "success"
+
+
+@controller.route("/getmessage",methods=['POST'])
+def get_message():
+    email = request.args.get("email")
+    subscriber_name = email.split('@')[0]
+    message = get_data_for_topic(subscriber_name)
+    return "success"
+
