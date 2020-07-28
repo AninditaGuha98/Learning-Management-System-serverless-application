@@ -38,9 +38,13 @@ class Security extends Component {
     
     verifyuser = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:5000/security', { answer: this.state.answer, OriginalAnswer: this.state.OriginalAnswer, email: this.state.email })
+        axios.post('http://localhost:5000/securityPost', { answer: this.state.answer, OriginalAnswer: this.state.OriginalAnswer, email: this.state.email }, {
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('IdToken')  
+            }})
             .then((res) => {
                 this.props.history.push('/home')
+                localStorage.setItem('email', this.state.email)
             })
             .catch((error) => {
                 console.log(error)
