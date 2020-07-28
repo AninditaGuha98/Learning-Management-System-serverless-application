@@ -39,24 +39,12 @@ class Analysis2 extends Component {
     }
     getSentiments = () => {
         var email = localStorage.getItem('email')
-        axios.post('http://localhost:5000/analysis2', email).then((response) => {
-            let data = JSON.parse(response.data);
-            let data2 = [{
-                "chat": "harsh-someone",
-                "user1" : "Harsh",
-                "sentiment1":"POSITIVE",
-                "user2":"Someone",
-                "sentiment2":"NEGATIVE"
-            },{
-                "chat": "harsh-someone",
-                "user1" : "Annu",
-                "sentiment1":"POSITIVE",
-                "user2":"Harsh",
-                "sentiment2":"NEGATIVE"
-            }]
+        console.log(email)  
+        axios.post('http://localhost:5000/analysis2', {email: email}).then((response) => {
+            let data = response.data
             this.setState({
-               chatlist: data2,
-               len: data2.length
+               chatlist: data,
+               len: data.length
             })
         }).catch((error) => {
 
@@ -75,12 +63,12 @@ class Analysis2 extends Component {
           let children = []
           children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["chat"]}</td>)
           children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["user1"]}</td>)
-          children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["sentiment"]}</td>)
+          children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["sentiment1"]}</td>)
           table.push(<tr style={{fontSize:'20px'}}>{children}</tr>)
           let children2 = []
-          children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["chat"]}</td>)
-          children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["user2"]}</td>)
-          children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["sentiment2"]}</td>)
+          children2.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["chat"]}</td>)
+          children2.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["user2"]}</td>)
+          children2.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["sentiment2"]}</td>)
           table.push(<tr style={{fontSize:'20px'}}>{children2}</tr>)
         }
         return table
@@ -99,21 +87,7 @@ class Analysis2 extends Component {
                 </div>
                 <div>
                     <Container>
-                        {/* <div className="table-outer">
-                            <Table striped bordered hover variant="dark">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Sentiments</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {this.renderTableData()}
-                                </tbody>
-                            </Table>
-
-                        </div> */}
-                         <table style={{margin:"auto", border:'1px solid black'}} striped bordered hover variant="dark">
+                         <table style={{margin:"auto", border:'1px solid black', marginTop: '20px'}} striped bordered hover variant="dark">
                          {this.createTable()}
                      </table>
                     </Container>
