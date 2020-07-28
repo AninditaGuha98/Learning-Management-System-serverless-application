@@ -11,7 +11,7 @@ def data_processing():
 
     bucket_name = "data-processing-lms"
     client = storage.Client.from_service_account_json(
-        'GCS_GCF_key.json')
+        'src/GCS_GCF_key.json')
     bucket = client.get_bucket(bucket_name)
     blob = bucket.get_blob(filename+".txt")
     content = blob.download_as_string().decode("utf-8")

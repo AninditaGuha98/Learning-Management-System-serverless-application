@@ -1,7 +1,8 @@
 import nltk
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
-
+import os
+nltk.data.path.append(os.getcwd()+"/nltk_data/")
 
 def Generate_named_entities(content):
     sentences = nltk.sent_tokenize(content)

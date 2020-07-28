@@ -32,7 +32,6 @@ if __name__ == '__main__':
             target_audience=aud)
 
     request = google.auth.transport.requests.Request()
-
     credentials.refresh(request)
 
     # This is debug code to show how to decode Identity Token
