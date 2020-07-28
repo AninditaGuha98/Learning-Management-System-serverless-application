@@ -9,8 +9,8 @@ def hello_world():
     return render_template("index.html")
 
 
-@controller.route('/register', methods=["GET"])
-def register_page():
+@controller.route('/data_processing', methods=["GET"])
+def data_processing():
     #Fetch the actual data here
     print("here")
     fName="Sheldon"
