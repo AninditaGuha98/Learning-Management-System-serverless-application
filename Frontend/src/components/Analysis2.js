@@ -8,12 +8,25 @@ class Analysis2 extends Component {
         super(props)
 
         this.state = {
-            email: ''
+            email: '',
+            UserChat: null
         }
     }
 
     renderTableData() {
-        return this.state.OnlineUsers.map((users, index) => {
+
+        
+        // return this.state.OnlineUsers.map((users, index) => {
+        //     const { name, organization, email } = users //destructuring
+        //     return (
+        //         <tr key={email}>
+        //             <td>{name}</td>
+        //             <td>{organization}</td>
+        //             <td>{email}</td>
+        //         </tr>
+        //     )
+        // })
+        return this.state.UserChat.map((users, index) => {
             const { name, organization, email } = users //destructuring
             return (
                 <tr key={email}>
@@ -26,8 +39,12 @@ class Analysis2 extends Component {
     }
     getSentiments = () => {
         var email = localStorage.getItem('email')
-        axios.post('http://localhost:5000/analysis2', email).then((user) => {
-
+        console.log(email)
+        axios.post('http://localhost:5000/analysis2', {email: email}).then((user) => {
+            console.log(user.data)
+            this.setState({
+                UserChat : user.data
+            })
         }).catch((error) => {
 
         })
@@ -51,8 +68,7 @@ class Analysis2 extends Component {
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>organization</th>
-
+                                        <th>Sentiments</th>
                                     </tr>
                                 </thead>
                                 <tbody>

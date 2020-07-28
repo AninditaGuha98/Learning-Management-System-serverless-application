@@ -52,7 +52,7 @@ class App extends Component {
             <Route path="/login" exact component={Login} />
             <Route path="/home" exact component={Home} />
             <Route path="/security" exact component={Security} />
-            <Route path="/createSub" exact component={Chat} />
+            <Route path="/chat" exact component={Chat} />
             <Route path="/lex" exact component={LexBot} />
             <Route path="/analysis" exact component={Analysis1} />
             <Route path="/analysis2" exact component={Analysis2} />

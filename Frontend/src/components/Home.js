@@ -28,9 +28,12 @@ class Home extends Component {
 
         axios.get('http://localhost:5000/home', {
             headers: {
-              Authorization: 'Bearer ' + localStorage.getItem('IdToken')  
-            }}).then((res) => {
+                Authorization: 'Bearer ' + localStorage.getItem('IdToken')
+            }
+        }).then((res) => {
             console.log(res)
+            console.log(res)
+
             if (res.status === 200) {
                 console.log(res)
                 this.setState({ OnlineUsers: res.data.data, email: res.data.email })
@@ -43,14 +46,19 @@ class Home extends Component {
             }
         }).catch((error) => {
 
+            this.props.history.push({
+                pathname: '/login',
+            })
+
+
         })
     }
     userLogout = e => {
         console.log(localStorage.getItem('email'))
-        axios.post('http://localhost:5000/logout', {email : localStorage.getItem('email')}).then((res) => {
-        localStorage.removeItem('IdToken')    
-        localStorage.removeItem('email')    
-        this.props.history.push('/login')
+        axios.post('http://localhost:5000/logout', { email: localStorage.getItem('email') }).then((res) => {
+            localStorage.removeItem('IdToken')
+            localStorage.removeItem('email')
+            this.props.history.push('/login')
 
         }).catch((error) => {
             console.log(error)
@@ -82,14 +90,19 @@ class Home extends Component {
     analysisTwo = () => {
         this.props.history.push('/analysis2')
     }
+    ChatPubSub = () => {
+        this.props.history.push('/chat')
+    }
+    
 
 
 
     render() {
+        var currentEmail = localStorage.getItem('email')
         return (
 
             <div>
-                <h2> Welcome {this.state.currUser}</h2>
+                <h2> Welcome {currentEmail}</h2>
                 <Container>
                     <div className="table-outer">
                         <Table striped bordered hover variant="dark">
@@ -111,10 +124,10 @@ class Home extends Component {
                     <div className="outer-box">
                         <Row>
                             <Col>
-                                <Button variant="primary" onClick={this.gotoBot}>ChatBot </Button>
+                                <Button variant="primary" onClick={this.gotoBot}>Ask Queries </Button>
                             </Col>
                             <Col>
-                                <Button variant="primary" onClick={this.userLogout}>Message Other Users </Button>
+                                <Button variant="primary" onClick={this.ChatPubSub}>Message Other Users </Button>
                             </Col>
                             <Col>
                                 <Button variant="primary" onClick={this.analysisOne}>Analysis 1</Button>
