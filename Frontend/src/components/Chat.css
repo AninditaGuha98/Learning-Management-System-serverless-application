@@ -1,0 +1,14 @@
+.upperPart {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 2rem;
+    height: 8rem;
+    margin-top: 10rem;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+    box-shadow: 2px 6px 1px lightgrey;
+}
+
+.messagePart {
+    margin-top: 5rem;
+}

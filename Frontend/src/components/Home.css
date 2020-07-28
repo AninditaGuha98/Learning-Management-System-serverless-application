@@ -1,0 +1,16 @@
+
+
+
+.outer-box {
+    padding: 3rem;
+    height: 10rem;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+    box-shadow: 2px 6px 1px lightgrey;
+    margin-top: 10rem;
+}
+
+.table-outer {
+    margin-top: 10rem;
+
+}
