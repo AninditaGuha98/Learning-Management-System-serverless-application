@@ -14,6 +14,7 @@ import LexBot from './components/LexBot';
 import Analysis1 from './components/Analysis1';
 import DataProcessing from './components/DataProcessing';
 import Analysis2 from './components/Analysis2';
+import Land_page from './components/Land_page';
 // import firebase from "./components/config/fbConfig";
 // import { withAuthenticator } from 'aws-amplify-react'
 
@@ -25,24 +26,6 @@ class App extends Component {
       user: {}
     }
   }
-
-
-  // componentDidMount() {
-  //   this.authListener();
-  // }
-
-  // authListener() {
-  //   firebase.auth().onAuthStateChanged((user) => {
-  //     if (user) {
-  //       this.setState({ user })
-  //     }
-  //     else {
-  //       this.setState({
-  //         user: null
-  //       })
-  //     }
-  //   })
-  // }
 
   render() {
     return (
@@ -56,6 +39,7 @@ class App extends Component {
             <Route path="/chat" exact component={Chat} />
             <Route path="/lex" exact component={LexBot} />
             <Route path="/analysis" exact component={Analysis1} />
+            <Route path="/" exact component={Land_page} />
             <Route path="/dataProcessing" exact component={DataProcessing} />
             <Route path="/analysis2" exact component={Analysis2} />
             {/* <Route path="/" exact component={Login} /> */}

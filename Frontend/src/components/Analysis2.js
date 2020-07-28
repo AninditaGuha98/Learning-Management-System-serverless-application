@@ -14,18 +14,6 @@ class Analysis2 extends Component {
     }
 
     renderTableData() {
-
-        
-        // return this.state.OnlineUsers.map((users, index) => {
-        //     const { name, organization, email } = users //destructuring
-        //     return (
-        //         <tr key={email}>
-        //             <td>{name}</td>
-        //             <td>{organization}</td>
-        //             <td>{email}</td>
-        //         </tr>
-        //     )
-        // })
         return this.state.UserChat.map((users, index) => {
             const { name, organization, email } = users //destructuring
             return (

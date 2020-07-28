@@ -15,16 +15,6 @@ class Chat extends Component {
         }
     }
 
-    // async componentDidMount() {
-    //     axios.post('http://localhost:5000/listenMessage', { name: 'Devam'}).then((result) => {
-    //         this.setState({
-    //             chatMessage: result.data.message
-    //         })
-    //         console.log(this.state.chatMessage)
-    //     }).catch((error) => {
-    //         console.log(error)
-    //     })
-    // }
     loadMessage = (e, label) => {
         e.preventDefault()
         axios.post('http://localhost:5000/listenMessage', { name: 'Devam' }, {
@@ -32,9 +22,6 @@ class Chat extends Component {
                 Authorization: 'Bearer ' + localStorage.getItem('IdToken')
             }
         }).then((result) => {
-            // this.setState({
-            //     chatMessage: result.data.message
-            // })
             console.log(result)
             console.log(result.data.message)
             this.setState({
