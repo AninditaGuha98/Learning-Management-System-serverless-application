@@ -3,6 +3,9 @@ from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
 import os
 nltk.data.path.append(os.getcwd()+"/nltk_data/")
+nltk.download("punkt", download_dir=str("/home/nltk_data"))
+nltk.download("stopwords", download_dir=str("/home/nltk_data"))
+nltk.download("averaged_perceptron_tagger", download_dir=str("/home/nltk_data"))
 
 def Generate_named_entities(content):
     sentences = nltk.sent_tokenize(content)
