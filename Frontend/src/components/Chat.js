@@ -14,6 +14,19 @@ class Chat extends Component {
             chatMessage: false
         }
     }
+    componentDidMount() {
+        axios.get('http://localhost:5000/chat', {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('IdToken')
+            }
+        }
+        ).then((user) => {
+
+
+        }).catch((error) => {
+            // this.props.history.push('/login')
+        })
+    }
 
     loadMessage = (e, label) => {
         e.preventDefault()
@@ -41,7 +54,7 @@ class Chat extends Component {
 
     }
 
-    createTopic = () => {
+    createSub = () => {
         axios.post('http://localhost:5000/createSub', { subName: this.state.name }, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('IdToken')
@@ -55,7 +68,9 @@ class Chat extends Component {
 
     onMessageSend = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:5000/pubMessage', { message: this.state.message }, {
+        var email = localStorage.getItem('email')
+        console.log(email)
+        axios.post('http://127.0.0.1:5000/sendmessage?email=' + email, { message: this.state.message }, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('IdToken')
             }
@@ -78,7 +93,7 @@ class Chat extends Component {
                                 <Form.Control type="text" placeholder="Enter Name" onChange={e => this.onValueChange(e, 'name')} name="name" />
                             </Col>
                             <Col>
-                                <Button type="submit" variant="primary" onClick={this.createTopic}>Submit</Button>
+                                <Button type="submit" variant="primary" onClick={this.createSub}>Submit</Button>
                             </Col>
                         </Row>
 

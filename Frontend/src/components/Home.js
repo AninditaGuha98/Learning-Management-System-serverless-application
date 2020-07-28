@@ -11,12 +11,13 @@ class Home extends Component {
         super(props)
 
         this.state = {
-            OnlineUsers: [
-                { name: 'Devam', organization: 'Dal', email: 'devam@email.com' },
-                { name: 'Harsh', organization: 'RBC', email: 'harsh@email.com' },
-                { name: 'Anindita', organization: 'CRA', email: 'anindita@email.com' },
+            OnlineUsers:
+                [
+                    { name: 'Devam', organization: 'Dal', email: 'devam@email.com' },
+                    { name: 'Harsh', organization: 'RBC', email: 'harsh@email.com' },
+                    { name: 'Anindita', organization: 'CRA', email: 'anindita@email.com' },
 
-            ],
+                ],
             something: false,
             currUser: ''
 
@@ -55,7 +56,11 @@ class Home extends Component {
     }
     userLogout = e => {
         console.log(localStorage.getItem('email'))
-        axios.post('http://localhost:5000/logout', { email: localStorage.getItem('email') }).then((res) => {
+        axios.post('http://localhost:5000/logout', { email: localStorage.getItem('email') }, {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('IdToken')
+            }
+        } ).then((res) => {
             localStorage.removeItem('IdToken')
             localStorage.removeItem('email')
             this.props.history.push('/login')
@@ -84,7 +89,7 @@ class Home extends Component {
 
     }
     gotoBot = () => {
-        this.props.histopry.push('/lex')
+        this.props.history.push('/lex')
     }
 
     dataProcessing = () => {
@@ -97,7 +102,7 @@ class Home extends Component {
     ChatPubSub = () => {
         this.props.history.push('/chat')
     }
-    
+
 
 
 

@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { Container, Row, Col, Button, Form, DropdownButton, Dropdown } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+import './Chat.css'
 
 class Register extends Component {
     constructor(props) {
@@ -65,42 +66,44 @@ class Register extends Component {
 
     render() {
         return (
-            <div style={{ height: '20rem', width: '30rem', padding: '3rem', textAlign: 'left' }}>
-                <Form onSubmit={this.addUser}>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control name="email" type="text" placeholder="Enter Email" onChange={e => this.onValueChange(e, 'email')} value={this.state.email} />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control name="password" type="password" placeholder="Password" onChange={e => this.onValueChange(e, 'password')} value={this.state.password} />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control name="name" type="text" placeholder="Enter Name" onChange={e => this.onValueChange(e, 'name')} value={this.state.name} />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Select Organization Name</Form.Label>
-                        <DropdownButton id="dropdown-basic-button" title="Dropdown button" name="organization" onSelect={e => this.onHandleSelect(e, 'organization')} value={this.state.organization}>
-                            <Dropdown.Item eventKey="DAL" >DAL</Dropdown.Item>
-                            <Dropdown.Item eventKey="SMU" >SMU</Dropdown.Item>
-                            <Dropdown.Item eventKey="Other" >Other</Dropdown.Item>
-                        </DropdownButton>
-                    </Form.Group>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Security Question</Form.Label>
-                        <Form.Control name="question" type="text" placeholder="Enter Your Security Question" onChange={e => this.onValueChange(e, 'question')} value={this.state.question} />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Answer</Form.Label>
-                        <Form.Control name="answer" type="password" placeholder="Enter Answer" onChange={e => this.onValueChange(e, 'answer')} value={this.state.answer} />
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
+            <div className = "register-outline">
+                <h2>Register</h2>
+                <div style={{ height: '20rem', width: '30rem', padding: '3rem', textAlign: 'left' }}>
+                    <Form onSubmit={this.addUser}>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control name="email" type="text" placeholder="Enter Email" onChange={e => this.onValueChange(e, 'email')} value={this.state.email} />
+                        </Form.Group>
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control name="password" type="password" placeholder="Password" onChange={e => this.onValueChange(e, 'password')} value={this.state.password} />
+                        </Form.Group>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control name="name" type="text" placeholder="Enter Name" onChange={e => this.onValueChange(e, 'name')} value={this.state.name} />
+                        </Form.Group>
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label>Select Organization Name</Form.Label>
+                            <DropdownButton id="dropdown-basic-button" title="Dropdown button" name="organization" onSelect={e => this.onHandleSelect(e, 'organization')} value={this.state.organization}>
+                                <Dropdown.Item eventKey="DAL" >DAL</Dropdown.Item>
+                                <Dropdown.Item eventKey="SMU" >SMU</Dropdown.Item>
+                                <Dropdown.Item eventKey="Other" >Other</Dropdown.Item>
+                            </DropdownButton>
+                        </Form.Group>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Security Question</Form.Label>
+                            <Form.Control name="question" type="text" placeholder="Enter Your Security Question" onChange={e => this.onValueChange(e, 'question')} value={this.state.question} />
+                        </Form.Group>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Answer</Form.Label>
+                            <Form.Control name="answer" type="password" placeholder="Enter Answer" onChange={e => this.onValueChange(e, 'answer')} value={this.state.answer} />
+                        </Form.Group>
+                        <Button variant="primary" type="submit">
+                            Submit
                     </Button>
-                </Form>
+                    </Form>
+                </div>
             </div>
-
         )
     }
 }

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
+import './Chat.css'
+
 // import firebase from "./config/fbConfig";
 import axios from 'axios'
 
@@ -29,7 +32,7 @@ class login extends Component {
             // console.log(res)
             if (res.status === 201) {
                 console.log(res)
-                this.props.history.push('/security', res.data )
+                this.props.history.push('/security', res.data)
             }
         })
             .catch((error) => {
@@ -46,26 +49,51 @@ class login extends Component {
     render() {
         console.log("Render")
         return (
-            <div style={{ height: '20rem', width: '30rem', padding: '3rem', textAlign: 'left' }}>
-                <Form onSubmit={this.loginUser}>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Username" onChange={e => this.onValueChange(e, 'email')} name="email" />
-                        <Form.Text className="text-muted">
-                            We'll never share your details with anyone else.
+            <div className="middle">
+                <h2>Login </h2>
+                <div style={{ height: '20rem', width: '30rem', padding: '3rem', textAlign: 'left' }}>
+                    <Form onSubmit={this.loginUser}>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control type="text" placeholder="Enter Username" onChange={e => this.onValueChange(e, 'email')} name="email" />
+                            {/* <TextField
+                            required
+                            onChange={e => this.onValueChange(e, 'email')} 
+                            name="email"
+                            id="outlined-required"
+                            label="Required"
+                            placeholder = "Enter username"
+                            variant="outlined"
+                        /> */}
+                            <Form.Text className="text-muted">
+                                We'll never share your details with anyone else.
                         </Form.Text>
-                    </Form.Group>
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" onChange={e => this.onValueChange(e, 'password')} name="password" />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
+                        </Form.Group>
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" placeholder="Password" onChange={e => this.onValueChange(e, 'password')} name="password" />
+                            {/* <TextField
+                            required
+                            type = 
+                            onChange={e => this.onValueChange(e, 'password')} 
+                            name="password"
+                            id="outlined-required"
+                            label="Required"
+                            placeholder = "Enter username"
+                            variant="outlined"
+                        /> */}
+                        </Form.Group>
+                        <Form.Group controlId="formBasicCheckbox">
+                            <Form.Check type="checkbox" label="Check me out" />
+                        </Form.Group>
+                        <Button variant="primary" type="submit">
+                            Submit
                     </Button>
-                </Form>
+                        <Form.Text className="text-muted">
+                            <a href = "/register"> Need to Register?</a>
+                        </Form.Text>
+                    </Form>
+                </div>
             </div>
         )
     }
