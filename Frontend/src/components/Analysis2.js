@@ -39,16 +39,52 @@ class Analysis2 extends Component {
     }
     getSentiments = () => {
         var email = localStorage.getItem('email')
-        console.log(email)
-        axios.post('http://localhost:5000/analysis2', {email: email}).then((user) => {
-            console.log(user.data)
+        axios.post('http://localhost:5000/analysis2', email).then((response) => {
+            let data = JSON.parse(response.data);
+            let data2 = [{
+                "chat": "harsh-someone",
+                "user1" : "Harsh",
+                "sentiment1":"POSITIVE",
+                "user2":"Someone",
+                "sentiment2":"NEGATIVE"
+            },{
+                "chat": "harsh-someone",
+                "user1" : "Annu",
+                "sentiment1":"POSITIVE",
+                "user2":"Harsh",
+                "sentiment2":"NEGATIVE"
+            }]
             this.setState({
-                UserChat : user.data
+               chatlist: data2,
+               len: data2.length
             })
         }).catch((error) => {
 
         })
     }
+
+    createTable = () => {
+        let table = []
+        let header = []
+        header.push(<th style={{margin:"auto", border:'1px solid black'}}>Chats</th>)
+        header.push(<th style={{margin:"auto", border:'1px solid black'}}>User</th>)
+        header.push(<th style={{margin:"auto", border:'1px solid black'}}>Sentiment</th>)
+        table.push(<thead style={{fontSize:'30px'}}>{header}</thead>)
+
+        for (let i = 0; i < this.state.len; i++) {
+          let children = []
+          children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["chat"]}</td>)
+          children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["user1"]}</td>)
+          children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["sentiment"]}</td>)
+          table.push(<tr style={{fontSize:'20px'}}>{children}</tr>)
+          let children2 = []
+          children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["chat"]}</td>)
+          children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["user2"]}</td>)
+          children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.chatlist[i]["sentiment2"]}</td>)
+          table.push(<tr style={{fontSize:'20px'}}>{children2}</tr>)
+        }
+        return table
+      }
 
     render() {
         var email = localStorage.getItem('email')
@@ -63,7 +99,7 @@ class Analysis2 extends Component {
                 </div>
                 <div>
                     <Container>
-                        <div className="table-outer">
+                        {/* <div className="table-outer">
                             <Table striped bordered hover variant="dark">
                                 <thead>
                                     <tr>
@@ -72,10 +108,14 @@ class Analysis2 extends Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* {this.renderTableData()} */}
+                                    {this.renderTableData()}
                                 </tbody>
                             </Table>
-                        </div>
+
+                        </div> */}
+                         <table style={{margin:"auto", border:'1px solid black'}} striped bordered hover variant="dark">
+                         {this.createTable()}
+                     </table>
                     </Container>
                 </div>
             </React.Fragment>

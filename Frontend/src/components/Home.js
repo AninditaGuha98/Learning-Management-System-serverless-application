@@ -87,6 +87,10 @@ class Home extends Component {
         this.props.histopry.push('/lex')
     }
 
+    dataProcessing = () => {
+        this.props.history.push('/dataProcessing')
+    }
+
     analysisTwo = () => {
         this.props.history.push('/analysis2')
     }
@@ -128,6 +132,9 @@ class Home extends Component {
                             </Col>
                             <Col>
                                 <Button variant="primary" onClick={this.ChatPubSub}>Message Other Users </Button>
+                            </Col>
+                            <Col>
+                                <Button variant="primary" onClick={this.dataProcessing}>Data Processing</Button>
                             </Col>
                             <Col>
                                 <Button variant="primary" onClick={this.analysisOne}>Analysis 1</Button>

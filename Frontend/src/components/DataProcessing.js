@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import React, { Component } from 'react';
 
-class Analysis1 extends Component {
+class DataProcessing extends Component {
 
     state = {
 
@@ -34,23 +34,20 @@ class Analysis1 extends Component {
         console.log(this.state.selectedFile);
 
         axios({
-            url: "http://127.0.0.1:5000/machine_learning?email=harshgp44@gmail.com",
+            url: "http://127.0.0.1:5000/data_processing?email=harshgp44@gmail.com",
             method: 'POST',
             data: formData
         }).then((response) => {
-            
-            let data = JSON.parse(response.data);
-            console.log(data[0])
-            console.log(data[1])
-            console.log((data[0]).length)
             this.setState({
-                length: data[0].length,
-                titles: data[0],
-                clusters: data[1]
+                image: "data:image/png;base64," + response.data
+     
             })
+
         });  
     };
 
+    // File content to be displayed after 
+    // file upload is complete 
     fileData = () => {
 
         if (this.state.selectedFile) {
@@ -76,22 +73,6 @@ class Analysis1 extends Component {
         }
     };
 
-    createTable = () => {
-        let table = []
-        let header = []
-        header.push(<th style={{margin:"auto", border:'1px solid black'}}>Titles</th>)
-        header.push(<th style={{margin:"auto", border:'1px solid black'}}>Clusters</th>)
-        table.push(<thead style={{fontSize:'30px'}}>{header}</thead>)
-
-        for (let i = 0; i < this.state.length; i++) {
-          let children = []
-          children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.titles[i]}</td>)
-          children.push(<td style={{margin:"auto", border:'1px solid black'}}>{this.state.clusters[i]}</td>)
-          table.push(<tr style={{fontSize:'20px'}}>{children}</tr>)
-        }
-        return table
-      }
-
     render() {
 
         return (
@@ -100,21 +81,23 @@ class Analysis1 extends Component {
                     Upload File
             </h1>
                 <h3>
-                Analysis 1: Generate text clusters from titles of the files.
+                Data Processing: Generate word cloud from the named entities of the uploaded files.
             </h3>
-                <div style={{marginBottom: '20px'}}>
-                    <input type="file" multiple onChange={this.onFileChange} />
+                <div>
+                    <input type="file" onChange={this.onFileChange} />
                     <button onClick={this.onFileUpload}>
                         Upload!
                 </button>
                 </div>
-                <table style={{margin:"auto", border:'1px solid black'}} striped bordered hover variant="dark">
-                    {this.createTable()}
-                </table>
+                
+                <div style={{marginTop: '40px'}}>
+                    <img className="myImg" alt="" width="600"
+                        height="600" src={this.state.image}/>
+                </div>
             </div>
 
         );
     }
 }
 
-export default Analysis1
+export default DataProcessing
