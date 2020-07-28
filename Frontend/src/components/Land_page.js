@@ -24,7 +24,9 @@ class Land_page extends Component {
         var email = localStorage.getItem('email')
         return (
             <Container>
+                <h1 style={{marginTop:'10px'}}>Learning Management System</h1>
             <div className="outer-box">
+                
                 <Row>
                     <Col>
                         <Button variant="primary" onClick={this.login}>Login</Button>
