@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Amplify from 'aws-amplify';
-import aws_exports from './aws-exports';
+// import aws_exports from './aws-exports';
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import Register from './components/Register';

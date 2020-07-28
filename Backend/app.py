@@ -15,4 +15,4 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 app.register_blueprint(controller)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5001)

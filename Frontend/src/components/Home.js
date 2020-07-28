@@ -56,6 +56,10 @@ class Home extends Component {
             )
         })
     }
+    analysisOne = () => {
+        this.props.history.push('/analysis')
+        
+    }
 
     render() {
         console.log(this.state.pet)
@@ -92,7 +96,7 @@ class Home extends Component {
                                 <Button variant="primary" onClick={this.userLogout}>Message Other Users </Button>
                             </Col>
                             <Col>
-                                <Button variant="primary" onClick={this.userLogout}>Analysis 1</Button>
+                                <Button variant="primary" onClick={this.analysisOne}>Analysis 1</Button>
                             </Col>
                             <Col>
                                 <Button variant="primary" onClick={this.userLogout}>Analysis 2</Button>

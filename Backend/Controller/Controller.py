@@ -2,6 +2,8 @@ import json
 import io
 import base64
 
+from werkzeug.utils import secure_filename
+
 from Service.data_processing import *
 from flask import Blueprint, render_template, request, jsonify, send_file
 
@@ -23,20 +25,22 @@ def data_post():
 
 @controller.route("/data_processing", methods=["POST"])
 def data_processing():
-    data = json.loads(request.data.decode("utf-8"))
-    email = data['email']
-    text_file = data['text']
-    
-    file_name = "data_processing_"+email
+    f = request.files["Text"]
+    f.save("temp/"+secure_filename(f.filename))
+    f = open("temp/"+secure_filename(f.filename),"r")
+    text_file = f.read()
+    email = request.args.get("email")
 
+    file_name = "data_processing_"+email
     upload_file_gcs("data-processing-lms",text_file,file_name+".txt")
     call_cloud_docker(email)
     image = fetch_file_gcs("data-processing-lms",file_name+".png")
+    print(image)
     return send_file(
         io.BytesIO(image),
         mimetype='image/jpeg',
         as_attachment=True,
-        attachment_filename=file_name)
+        attachment_filename="image")
 
 # @controller.route("machine_learning",methods=["POST"])
 # def machine_learning():
