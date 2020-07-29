@@ -27,7 +27,7 @@ class Home extends Component {
 
     componentDidMount() {
 
-        axios.get('http://localhost:5000/home', {
+        axios.get('http://localhost:5001/home', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('IdToken')
             }
@@ -56,7 +56,7 @@ class Home extends Component {
     }
     userLogout = e => {
         console.log(localStorage.getItem('email'))
-        axios.post('http://localhost:5000/logout', { email: localStorage.getItem('email') }, {
+        axios.post('http://localhost:5001/logout', { email: localStorage.getItem('email') }, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('IdToken')
             }

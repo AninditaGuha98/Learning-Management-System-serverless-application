@@ -28,21 +28,9 @@ class Analysis2 extends Component {
     getSentiments = () => {
         var email = localStorage.getItem('email')
         console.log(email)
-        axios.post('http://localhost:5000/analysis2', {email : email}).then((response) => {
-            let data = JSON.parse(response.data);
-            let data2 = [{
-                "chat": "harsh-someone",
-                "user1" : "Harsh",
-                "sentiment1":"POSITIVE",
-                "user2":"Someone",
-                "sentiment2":"NEGATIVE"
-            },{
-                "chat": "harsh-someone",
-                "user1" : "Annu",
-                "sentiment1":"POSITIVE",
-                "user2":"Harsh",
-                "sentiment2":"NEGATIVE"
-            }]
+        axios.post('http://localhost:5001/analysis2', {email : email}).then((response) => {
+            console.log(response.data)
+            let data = response.data
             this.setState({
                chatlist: data,
                len: data.length
