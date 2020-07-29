@@ -38,12 +38,7 @@
   model on GCS. Then we can use the model to predict the data. The later technique works if the model needs training only once. The former works best for all the ways</p>
 
 
-<h3>Team Members:</h3>
-<ul>
-<li><a href="https://github.com/AninditaGuha98"> Anindita Guha </li>
-<li> Devam Shah </li>
-<li><a href="https://github.com/Harshpatel44"> Harsh Patel </li>
- </ul>
+
  
 <h3>Team Contribution</h3>
 <p>1. Anindita Guha : <i> * Authentication module * Online support module * Analysis 2 </p>
@@ -60,6 +55,15 @@
 <p>6. Regression testing</p>
 <p>7. System testing</p>
 
+
+<h3>Team Members:</h3>
+<ul>
+<li><a href="https://github.com/AninditaGuha98"> Anindita Guha </li>
+<li> Devam Shah </li>
+<li><a href="https://github.com/Harshpatel44"> Harsh Patel </li>
+ </ul>
+ 
+ 
 <h2>References</h2>
 <ul>
 <li>Word cloud code: <i>https://www.geeksforgeeks.org/generating-word-cloud-python/</i></li>
