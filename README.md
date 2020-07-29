@@ -26,6 +26,11 @@
 <p>1. This module involves the login page.</p>
 <p>2. 1st factor authentication involves validating the email and password, by validating them using the google cloud function.</p>
 <p>3. 2 FA involves validating the security question/answer using the AWS Lambda function.</p>  
+
+<i><p>Online Support Module</p></i>
+<p>1. This module involves the Lex Chatbot.</p>
+<p>2. According to first use case, the user queries basic website navigation information. Branching logic has been added by triggering Lambda function.</p>
+<p>3. According to second use case, the Lex bot triggers a lambda function, which will be querying and displaying online users belonging to the same organization.</p>  
   
 <i><p>Data Processing</p></i>
 <p>1. Google Cloud Storage buckets are google encrypted.</p>
