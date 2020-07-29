@@ -43,7 +43,13 @@
 <li><a href="https://github.com/AninditaGuha98"> Anindita Guha </li>
 <li> Devam Shah </li>
 <li><a href="https://github.com/Harshpatel44"> Harsh Patel </li>
- </ul> 
+ </ul>
+ 
+<h3>Team Contribution</h3>
+<p>1. Anindita Guha : <i> * Authentication module * Online support module * Analysis 2 </p>
+ <p>2. Harsh Patel : <i> * Data processing * Analysi 1 * Flask Framework </p>
+<p>3. Devam Shah : <i> * User management module * Chat module * Node framework </p>
+ <br>
  
 <h3>Testing</h3>
 <p>1. Unit testing for all the controllers, api and cloud functions.</p>
