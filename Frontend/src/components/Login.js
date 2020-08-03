@@ -29,7 +29,7 @@ class login extends Component {
         e.preventDefault();
         var data = { email: this.state.email, password: this.state.password }
         axios.post('http://localhost:5000/login', data).then((res) => {
-            // console.log(res)
+            console.log(res)
             if (res.status === 201) {
                 console.log(res)
                 this.props.history.push('/security', res.data)
@@ -83,14 +83,11 @@ class login extends Component {
                             variant="outlined"
                         /> */}
                         </Form.Group>
-                        <Form.Group controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Check me out" />
-                        </Form.Group>
                         <Button variant="primary" type="submit">
                             Submit
                     </Button>
                         <Form.Text className="text-muted">
-                            <a href = "/register"> Need to Register?</a>
+                            <a href="/register"> Need to Register?</a>
                         </Form.Text>
                     </Form>
                 </div>

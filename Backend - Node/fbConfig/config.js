@@ -6,14 +6,14 @@ require('firebase/firebase-functions')
 var serviceAccount = require("../keys.json");
 
 var config = {
-    apiKey: "AIzaSyCTMPcMWAjziBoRBbHV-sDtfPUD-jHh1P0",
-    authDomain: "serverless-proj-d62dc.firebaseapp.com",
-    databaseURL: "https://serverless-proj-d62dc.firebaseio.com",
-    projectId: "serverless-proj-d62dc",
-    storageBucket: "serverless-proj-d62dc.appspot.com",
-    messagingSenderId: "480905493151",
-    appId: "1:480905493151:web:ef69f91daff9d2c83300aa",
-    measurementId: "G-6YVDDHZP8M"
+    apiKey: "AIzaSyCPO4NLWt2ehMj12RWaP0sDwQTRExEBodc",
+    authDomain: "pubsub-4d0bb.firebaseapp.com",
+    databaseURL: "https://pubsub-4d0bb.firebaseio.com",
+    projectId: "pubsub-4d0bb",
+    storageBucket: "pubsub-4d0bb.appspot.com",
+    messagingSenderId: "967897018767",
+    appId: "1:967897018767:web:7bb36c22c5d8948a5f9bfa",
+    measurementId: "G-1JSL18SYX6"
 };
 
 // Initialize Firebase

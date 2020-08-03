@@ -50,15 +50,17 @@ class Register extends Component {
         axios.post('http://localhost:5000/register', data).then((res) => {
             console.log(res)
             if (res.status === 200) {
-
+                console.log(res.data.message)
+                this.props.history.push('/login')
             }
             else if (res.status === 201) {
-                console.log(res.data.error.message)
+                console.log(res.data.error)
             }
             else if (res.status === 202) {
                 console.log(res.data.error)
             }
         }).catch((error) => {
+            console.log("error")
             console.log(error)
         })
     };
@@ -84,7 +86,7 @@ class Register extends Component {
                         </Form.Group>
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Select Organization Name</Form.Label>
-                            <DropdownButton id="dropdown-basic-button" title="Dropdown button" name="organization" onSelect={e => this.onHandleSelect(e, 'organization')} value={this.state.organization}>
+                            <DropdownButton id="dropdown-basic-button" title={this.state.organization} name="organization" onSelect={e => this.onHandleSelect(e, 'organization')} value={this.state.organization}>
                                 <Dropdown.Item eventKey="DAL" >DAL</Dropdown.Item>
                                 <Dropdown.Item eventKey="SMU" >SMU</Dropdown.Item>
                                 <Dropdown.Item eventKey="Other" >Other</Dropdown.Item>

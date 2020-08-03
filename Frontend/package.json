@@ -15,6 +15,7 @@
     "mysql": "^2.18.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.2.2",
+    "react-chat-elements": "^10.9.3",
     "react-dom": "^16.13.1",
     "react-lex": "^1.2.1",
     "react-router-dom": "^5.2.0",

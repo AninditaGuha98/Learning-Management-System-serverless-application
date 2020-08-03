@@ -46,7 +46,6 @@ class Home extends Component {
                 this.setState({ OnlineUsers: res.data })
             }
         }).catch((error) => {
-
             this.props.history.push({
                 pathname: '/login',
             })
@@ -60,7 +59,7 @@ class Home extends Component {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('IdToken')
             }
-        } ).then((res) => {
+        }).then((res) => {
             localStorage.removeItem('IdToken')
             localStorage.removeItem('email')
             this.props.history.push('/login')

@@ -7,6 +7,7 @@ module.exports = register = (req, res) => {
     let missingValues = 0
     // e.preventDefault();
     const db = firebase.firestore();
+    console.log("Till here")
     const missingCheck = firebase.functions().httpsCallable('checkMissing')
 
     missingCheck(req.body).then((user) => {

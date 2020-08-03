@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import './Chat.css'
 import { Container, Row, Col, Button, Form } from 'react-bootstrap'
 import axios from 'axios'
+import 'react-chat-elements/dist/main.css';
+import { MessageBox } from 'react-chat-elements';
 
 class Chat extends Component {
     constructor(props) {
@@ -14,23 +16,12 @@ class Chat extends Component {
             chatMessage: false
         }
     }
-    componentDidMount() {
-        axios.get('http://localhost:5000/chat', {
-            headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('IdToken')
-            }
-        }
-        ).then((user) => {
-
-
-        }).catch((error) => {
-            // this.props.history.push('/login')
-        })
-    }
+    
 
     loadMessage = (e, label) => {
         e.preventDefault()
-        axios.post('http://localhost:5000/listenMessage', { name: 'Devam' }, {
+        var email = localStorage.getItem('email')
+        axios.post('http://localhost:5000/listenMessage', { name: email }, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('IdToken')
             }
@@ -54,6 +45,8 @@ class Chat extends Component {
 
     }
 
+    
+
     createSub = () => {
         axios.post('http://localhost:5000/createSub', { subName: this.state.name }, {
             headers: {
@@ -66,11 +59,40 @@ class Chat extends Component {
         })
     }
 
+    // componentDidMount() {
+        
+    //     // let i = 0;
+    //     // let interval = setInterval(() => {
+    //     //   if (i<11) {
+    //     //     this.getPerson(this.apiUrl + i);
+    //     //     i++;
+    //     //     console.log("waiting for the next call.");
+    //     //   }
+    //     //   else {
+    //     //     clearInterval(interval)
+    //     //   }
+    
+    //     // }, 5000);
+    //     window.setInterval
+    //     (function(){
+            
+    //         axios.post('http://127.0.0.1:5000/listenMessage').then((res) => {
+    //             console.log(res.data.message)
+    //         }).catch((error) => {
+    //             console.log("error")
+    //         })},5000);
+    //         // do some stuff
+    //         // setTimeout(arguments.callee, 2000);
+    //     // })();
+    //   }
+
+      
+
+
     onMessageSend = (e) => {
-        e.preventDefault()
         var email = localStorage.getItem('email')
         console.log(email)
-        axios.post('http://127.0.0.1:5000/sendmessage?email=' + email, { message: this.state.message }, {
+        axios.post('http://127.0.0.1:5000/pubMessage', { message: this.state.message }, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('IdToken')
             }
@@ -86,7 +108,7 @@ class Chat extends Component {
 
         return (
             <React.Fragment>
-                <div className="upperPart" hidden={this.state.showComp}>
+                {/* <div className="upperPart" hidden={this.state.showComp}>
                     <Container  >
                         <Row>
                             <Col>
@@ -127,8 +149,10 @@ class Chat extends Component {
                 </Container>
                 <Container>
                     <Button variant="success" type="submit" onClick={this.loadMessage} style={{ marginTop: '2rem' }}> Get Messages</Button>
-                </Container>
-
+                </Container> */}
+            <MessageBox>
+                
+            </MessageBox>
             </React.Fragment>
         )
     }
