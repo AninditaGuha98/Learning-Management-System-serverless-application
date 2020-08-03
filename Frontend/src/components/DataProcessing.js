@@ -32,9 +32,9 @@ class DataProcessing extends Component {
         );
  
         console.log(this.state.selectedFile);
-
+        var email = localStorage.getItem('email')
         axios({
-            url: "http://127.0.0.1:5000/data_processing?email=harshgp44@gmail.com",
+            url: "http://127.0.0.1:5000/data_processing?email="+email,
             method: 'POST',
             data: formData
         }).then((response) => {

@@ -47,8 +47,7 @@ class Register extends Component {
             question: this.state.question,
             answer: this.state.answer,
         }
-        axios.post('http://localhost:5000/register', data).then((res) => {
-            console.log(res)
+        axios.post('http://localhost:5001/register', data).then((res) => {
             if (res.status === 200) {
                 console.log(res.data.message)
                 this.props.history.push('/login')

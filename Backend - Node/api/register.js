@@ -31,14 +31,14 @@ module.exports = register = (req, res) => {
 
                 })
                 .catch((error) => {
-                    return res.status(201).json({ error: error })
+                    return res.status(201).json({error : error})
                 })
+                
             axios.post(
                 'https://te7gfujgi8.execute-api.us-east-1.amazonaws.com/default',
                 { email: req.body.email, question: req.body.question, answer: req.body.answer, organization: req.body.organization, name: req.body.name }
             ).then((user) => {
-                console.log(user)
-                console.log("Request Success")
+                return res.status(200).json({message:"Registration Successful"})
             })
                 .catch((error) => {
                     console.log(error)

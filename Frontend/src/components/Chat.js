@@ -16,21 +16,27 @@ class Chat extends Component {
             chatMessage: false
         }
     }
-    
+
+    componentDidMount() {
+        this.loadMessage();
+        this.interval = setInterval(() => {
+          this.loadMessage();
+        }, 5000);
+      }
 
     loadMessage = (e, label) => {
-        e.preventDefault()
         var email = localStorage.getItem('email')
-        axios.post('http://localhost:5000/listenMessage', { name: email }, {
-            headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('IdToken')
-            }
-        }).then((result) => {
+        email = "aninditaguha9@gmail.com"
+        axios.post('http://localhost:5000/getmessage?email='+email).then((result) => {
             console.log(result)
-            console.log(result.data.message)
-            this.setState({
-                chatMessage: result.data.message
-            })
+            console.log(result.data)
+            var ul = document.getElementById("messageList");
+            for (var i = 0; i < result.data.length; i++) {
+                var name = result.data[i];
+                var li = document.createElement('li');
+                li.appendChild(document.createTextNode(name));
+                ul.appendChild(li)
+            }
         }).catch((error) => {
             console.log(error)
         })
@@ -44,6 +50,7 @@ class Chat extends Component {
         });
 
     }
+<<<<<<< HEAD
 
     
 
@@ -53,9 +60,17 @@ class Chat extends Component {
                 Authorization: 'Bearer ' + localStorage.getItem('IdToken')
             }
         }).then((result) => {
+=======
+    
+    setSubscriber = () => {
+        var email = localStorage.getItem('email')
+        var name = this.state.name
+        email = "harshgp44@gmail.com"
+        axios.post('http://127.0.0.1:5000/setsubscriber?email='+name).then((result) => {
+>>>>>>> 794f39f4b826a322cfe3c7fffb6a63187fd3d952
             console.log(result)
         }).catch((error) => {
-
+            console.log(error)
         })
     }
 
@@ -91,12 +106,19 @@ class Chat extends Component {
 
     onMessageSend = (e) => {
         var email = localStorage.getItem('email')
+<<<<<<< HEAD
         console.log(email)
         axios.post('http://127.0.0.1:5000/pubMessage', { message: this.state.message }, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('IdToken')
             }
         }).then((result) => {
+=======
+        email = "harshgp44@gmail.com"
+        console.log(this.state.message)
+        axios.post('http://127.0.0.1:5000/sendmessage?email=' + email, { message: this.state.message })
+        .then((result) => {
+>>>>>>> 794f39f4b826a322cfe3c7fffb6a63187fd3d952
             console.log(result)
         }).catch((error) => {
             console.log(error)
@@ -104,8 +126,6 @@ class Chat extends Component {
     }
 
     render() {
-
-
         return (
             <React.Fragment>
                 {/* <div className="upperPart" hidden={this.state.showComp}>
@@ -115,7 +135,7 @@ class Chat extends Component {
                                 <Form.Control type="text" placeholder="Enter Name" onChange={e => this.onValueChange(e, 'name')} name="name" />
                             </Col>
                             <Col>
-                                <Button type="submit" variant="primary" onClick={this.createSub}>Submit</Button>
+                                <Button type="submit" variant="primary" onClick={this.setSubscriber}>Submit</Button>
                             </Col>
                         </Row>
 
@@ -149,10 +169,18 @@ class Chat extends Component {
                 </Container>
                 <Container>
                     <Button variant="success" type="submit" onClick={this.loadMessage} style={{ marginTop: '2rem' }}> Get Messages</Button>
+<<<<<<< HEAD
                 </Container> */}
             <MessageBox>
                 
             </MessageBox>
+=======
+                    <ul id = "messageList" style={{marginTop:'10px',listStyle:'none',border:'1px solid black'}}>
+                    </ul>
+                    
+                </Container>
+
+>>>>>>> 794f39f4b826a322cfe3c7fffb6a63187fd3d952
             </React.Fragment>
         )
     }

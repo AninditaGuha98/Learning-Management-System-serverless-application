@@ -1,4 +1,3 @@
-import json
 import base64
 import os
 import requests
@@ -14,6 +13,7 @@ def upload_file_gcs(storage_name,file,file_name):
     bucket = client.get_bucket(storage_name)
     blob = bucket.blob(file_name)
     blob.upload_from_string(file)
+    print("File uploaded to GCS: " + file_name)
 
 
 def call_data_processing_docker(email):

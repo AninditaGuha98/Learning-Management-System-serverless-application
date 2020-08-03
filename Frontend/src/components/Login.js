@@ -28,8 +28,8 @@ class login extends Component {
     loginUser = e => {
         e.preventDefault();
         var data = { email: this.state.email, password: this.state.password }
-        axios.post('http://localhost:5000/login', data).then((res) => {
-            console.log(res)
+        axios.post('http://localhost:5001/login', data).then((res) => {
+            // console.log(res)
             if (res.status === 201) {
                 console.log(res)
                 this.props.history.push('/security', res.data)

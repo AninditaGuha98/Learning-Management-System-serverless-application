@@ -16,7 +16,7 @@ class Analysis1 extends Component {
     onFileChange = event => {
 
         // Update the state 
-        this.setState({ selectedFile: event.target.files[0] });
+        this.setState({ selectedFile: event.target.files });
 
     };
 
@@ -24,25 +24,21 @@ class Analysis1 extends Component {
     onFileUpload = () => {
 
         const formData = new FormData();
+        let files = this.state.selectedFile;
 
-        formData.append(
-            "Text",
-            this.state.selectedFile,
-            this.state.selectedFile.name
-        );
+        for (let i = 0; i < files.length; i++) {
+            formData.append(`images[${i}]`, files[i])
+        }
  
         console.log(this.state.selectedFile);
-
+        var email = localStorage.getItem('email')
         axios({
-            url: "http://127.0.0.1:5000/machine_learning?email=harshgp44@gmail.com",
+            url: "http://127.0.0.1:5000/machine_learning?email="+email,
             method: 'POST',
             data: formData
         }).then((response) => {
             
             let data = JSON.parse(response.data);
-            console.log(data[0])
-            console.log(data[1])
-            console.log((data[0]).length)
             this.setState({
                 length: data[0].length,
                 titles: data[0],

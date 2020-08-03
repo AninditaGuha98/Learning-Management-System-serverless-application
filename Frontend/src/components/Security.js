@@ -19,7 +19,7 @@ class Security extends Component {
     componentDidMount() {
         localStorage.setItem('IdToken', this.state.IdToken)
         console.log(this.state.IdToken)
-        axios.get('http://localhost:5000/security', {
+        axios.get('http://localhost:5001/security', {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('IdToken')  
             }})
@@ -38,7 +38,7 @@ class Security extends Component {
     
     verifyuser = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:5000/securityPost', { answer: this.state.answer, OriginalAnswer: this.state.OriginalAnswer, email: this.state.email }, {
+        axios.post('http://localhost:5001/securityPost', { answer: this.state.answer, OriginalAnswer: this.state.OriginalAnswer, email: this.state.email }, {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('IdToken')  
             }})
