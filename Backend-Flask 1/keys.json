@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "phrasal-aegis-284521",
+  "private_key_id": "14b56221c0ea08cbf3660fe229ec752e1a6994d9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDdcAD7qt1LXpvp\noxjS0cCo2MygogP5SHFShOQ57XM4soNbR/qFfWJMQaUaSxSKUEBIgmNYcu8kasEM\nb5nJVnC0R6H+QruIDtqrquOpuoH6wOcKdlR4CcKB7PJjmUnAKwcVCe61TmkYNe/y\ntz0VlEcVGovzaFFHn2PDtPws/jMxvWy3UiZ2Yo3KczdsMUVSJlLYe96NLp2V7ZGv\nIKvkkDXss/5s+nqOAaQeXnUq8DSxnFycrfFgTgfNDlrjtc6l0c4AnAumHkZh/1Oj\ndQsZZSMtJevyecyewDkGrBanK2sHiI3iVIpAUy9qyQ2yWK2ZaJvveBlReeB6agQl\nEo+gkbLZAgMBAAECggEAANdWBzhO/TEOD90w5DLsE8gepawpezPJZTcAUSPQuJVD\n0F/NrBGkNkyk8A/IDQsNsqjQibHs37swrtePfD2oXnFYngkw9XnNXove4wXRTHt/\nzsdql6BXEI+VNe5YYrlwt+WXT+Szgf/JQLQ6lp+L68dAYyUqv9/Zxp3KonCE9cPa\nYkZrqmdx3V/nxwMH+puXP40BvxbQ7JXzMmS2lYdDa+dUMAOL0gvcYKgFWirOcihj\nk/ekrfUEYUwfkgrgJ1CQA9GBsC85SNhLKUSsQ9IiEtqVvqlsgSvPhaIKbJxxOHOd\nK+fDsZoZkMC0fEBoofZFzST19N0BxI1UnxuQdMOTIQKBgQDyWmyWOS5kvlptlpU2\n5t/6SFUtDIsExYa0S8DhHAT9aw4OT3jR+T3+6VgHZ1oGeoes39sG0JbXt5olpPdF\nrZEyCcuR80nH6+B7yKIn3FX5xOI4y1PxWAuahlHdUijntJPVsEsgiaTZMZw5WNZn\n0PdLmO9HA3UbNoGdu+tQnXhFKQKBgQDp6BM691GaMZwaSFx22y/e+RX8a3FZkg+U\nE2l7QGWixAab50eF7zldAGBzBUmOqCj1gKU179DBN1VkORexwKe4G7V5qAU3fPs0\npfwJpxS4aJBp8KC5S6A2zU8cVOPWKVMywFG0Z3ShVt9bnkIR/F4E5K/lj5yR5Dl1\nb7Ke37GGMQKBgQDGMTKaC3soQg87jajLNDW4vUyCwb4ykcKeUVEUBtEB2XmuNEmv\nFXAgtf0aWOfjYnLv6kV5Jj4lfW2fGXBqWA3kaOREoDwXNYvoTuRlSqg40Uzbe1RT\ni1g571ylbRosmp1HZJubqVTZlduXflIgpmCGPzR205oCPinzr4k57P09OQKBgQCH\nygCP9M/csfwrjeKP5YMO8I+A8GbnVtHQZsyPjrzyFta3Xza4XD5y7SsQ2vru5FSS\n4VIH0+bepF7gRfypZmx3hy59J7uPkPDMiaedeu+edqWPuu+zYmHqLppEmkuCIo94\nIQnNr1mX6DTWnTNB+b4jHRe4Lvz3/QQWVvfdH4ORoQKBgQDjuvADwy7h3E1lkKOz\nolPn/YYpxW7R/CpzBKaDnkc2p4BGtSBwAAnj8OMlrnFFppdy9A6lRf7DPPOktZ74\npC/wsX3Dmr6N/gSC6/yn5d3a4rnxvci4lVARRbHjd5+JMYNFRBUTbNNQc9cKlaP4\n2ep8tSVpKU8yO5TippvMT6rlLg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "learning-management-system-dev@phrasal-aegis-284521.iam.gserviceaccount.com",
+  "client_id": "110541154350969619032",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/learning-management-system-dev%40phrasal-aegis-284521.iam.gserviceaccount.com"
+}

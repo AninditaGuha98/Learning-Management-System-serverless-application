@@ -1,0 +1,35 @@
+.upperPart {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 2rem;
+    height: 8rem;
+    margin-top: 10rem;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+    box-shadow: 2px 6px 1px lightgrey;
+}
+
+.messagePart {
+    margin-top: 5rem;
+}
+
+
+.middle {
+    width: 40rem;
+    padding: 2rem;
+    margin-top: 10rem;
+    margin-left: 30rem;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+    box-shadow: 2px 6px 1px lightgrey;
+}
+
+.register-outline {
+    margin-top: 5rem;
+    margin-left: 35rem;
+    height: 45rem;
+    width: 35rem;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+    box-shadow: 2px 6px 1px lightgrey;
+}
