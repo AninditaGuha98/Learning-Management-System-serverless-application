@@ -42,14 +42,6 @@
 <p>2. There are 2 approaches which can be followed. One is to create a container and call API for training and testing, another is to train the model on notebook and save the
   model on GCS. Then we can use the model to predict the data. The later technique works if the model needs training only once. The former works best for all the ways</p>
 
-
-
- 
-<h3>Team Contribution</h3>
-<p>1. Devam Shah </p>
- <p>2. Harsh Patel </p>
-<p>3. Anindita Guha </p>
- <br>
  
 <h3>Testing</h3>
 <p>1. Unit testing for all the controllers, api and cloud functions.</p>
