@@ -2,10 +2,10 @@ import json
 import mysql.connector
 import boto3
 
-conn = mysql.connector.connect(host='serverless.cmtchp4wslrw.us-east-1.rds.amazonaws.com'
-                               , user='admin',
-                               password='admin2806',
-                               db='serverless')
+conn = mysql.connector.connect(host=''
+                               , user='',
+                               password='',
+                               db='')
 cursor = conn.cursor()
 
 def lambda_handler(event, context):
