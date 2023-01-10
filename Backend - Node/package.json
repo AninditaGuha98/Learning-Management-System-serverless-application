@@ -16,7 +16,7 @@
     "express": "^4.17.1",
     "express-firebase-middleware": "^3.0.0",
     "firebase": "^7.17.1",
-    "firebase-admin": "^9.0.0",
+    "firebase-admin": "^11.4.1",
     "firebase-functions": "^3.8.0"
   }
 }
